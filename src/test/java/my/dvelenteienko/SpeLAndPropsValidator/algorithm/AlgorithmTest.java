@@ -1,4 +1,7 @@
-package my.dvelenteienko.SpeLAndPropsValidator;
+package my.dvelenteienko.SpeLAndPropsValidator.algorithm;
+
+import java.util.Random;
+import java.util.stream.LongStream;
 
 public class AlgorithmTest {
 
@@ -6,31 +9,39 @@ public class AlgorithmTest {
 
         long[] arr = {10, 12, 566, 54, 33, 23};
 
-        ArrayMList arrayMList = new ArrayMList(5);
-        arrayMList.insert(235);
-        arrayMList.insert(12);
-        arrayMList.insert(45);
-        arrayMList.insert(2);
-        arrayMList.insert(500);
+        ArrayMList arrayMList = new ArrayMList();
+        arrayMList.populate(10);
         arrayMList.display();
-        arrayMList.display();
-        System.out.println(arrayMList.linearSearch(500));
-        System.out.println(arrayMList.binarySearch(500));
+//        System.out.println(arrayMList.linearSearch(500));
+//        System.out.println(arrayMList.binarySearch(500));
 //        arrayMList.bubbleSort();
-        arrayMList.selectionSort();
+//        arrayMList.selectionSort();
+        arrayMList.insertionSortRevert();
         arrayMList.display();
 
     }
 
     static class ArrayMList {
+        private static final int DEFAULT_SIZE = 10;
         private long[] a;
         private int nElems;
-        private final int max;
 
-        public ArrayMList(int max) {
-            this.max = max;
-            a = new long[this.max];
+        private int size;
+
+        public ArrayMList(int size) {
+            this.size = size;
+            a = new long[this.size];
             nElems = 0;
+        }
+
+        public ArrayMList() {
+            populate(DEFAULT_SIZE);
+        }
+
+        public void populate(int size) {
+            a = new Random().longs(size, 1, size * 16L).toArray();
+            nElems = size;
+            this.size = size;
         }
 
         public void selectionSort() {
@@ -43,6 +54,32 @@ public class AlgorithmTest {
                     }
                 }
                 swap(out, min);
+            }
+        }
+
+        public void insertionSort() {
+            int in, out;
+            for (out = 1; out < nElems; out++) {
+                long temp = a[out];
+                in = out;
+                while (in > 0 && a[in - 1] >= temp) {
+                    a[in] = a[in - 1];
+                    -- in;
+                }
+                a[in] = temp;
+            }
+        }
+
+        public void insertionSortRevert() {
+            int in, out;
+            for (out = 1; out < nElems; out++) {
+                long temp = a[out];
+                in = out;
+                while (in > 0 && a[in - 1] <= temp) {
+                    a[in] = a[in - 1];
+                    -- in;
+                }
+                a[in] = temp;
             }
         }
 
@@ -95,8 +132,8 @@ public class AlgorithmTest {
         }
 
         public void insert(long value) {
-            if (this.nElems == this.max) {
-                System.out.println("Cannot insert more than " + max + " elements");
+            if (this.nElems == this.size) {
+                System.out.println("Cannot insert more than " + size + " elements");
                 return;
             }
             this.a[nElems] = value;
