@@ -4,24 +4,24 @@ public class StackOnArray {
 
     private final Object[] stackArray;
     private int top;
-    private final int maxSize;
+    private int maxSize;
 
     public StackOnArray(int maxSize) {
-        this.maxSize = maxSize;
         this.stackArray = new Object[maxSize];
         this.top = -1;
+        this.maxSize = maxSize;
     }
 
     public void push(long value) {
-        this.stackArray[++top] = value;
+        stackArray[++top] = value;
     }
 
     public Object pop() {
-        return this.stackArray[top--];
+        return stackArray[top--];
     }
 
     public Object peek() {
-        return this.stackArray[top];
+        return stackArray[top];
     }
 
     public boolean isEmpty() {

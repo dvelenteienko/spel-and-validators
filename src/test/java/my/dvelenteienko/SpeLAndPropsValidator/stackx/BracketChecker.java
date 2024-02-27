@@ -11,10 +11,10 @@ public class BracketChecker {
     }
 
     public void check() {
-        int stackSize = this.input.length();
+        int stackSize = input.length();
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < stackSize; i++) {
-            Character ch = this.input.charAt(i);
+            Character ch = input.charAt(i);
             switch (ch) {
                 case '{', '[', '(' -> stack.push(ch);
                 case '}', ']', ')' -> {

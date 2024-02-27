@@ -29,8 +29,8 @@ public class AlgorithmTest {
         private int size;
 
         public ArrayMList(int size) {
-            this.size = size;
-            a = new long[this.size];
+            size = size;
+            a = new long[size];
             nElems = 0;
         }
 
@@ -41,7 +41,7 @@ public class AlgorithmTest {
         public void populate(int size) {
             a = new Random().longs(size, 1, size * 16L).toArray();
             nElems = size;
-            this.size = size;
+            size = size;
         }
 
         public void selectionSort() {
@@ -103,7 +103,7 @@ public class AlgorithmTest {
         public boolean linearSearch(long searchKey) {
             int j;
             for (j = 0; j < nElems; j++) {
-                if (this.a[j] == searchKey) {
+                if (a[j] == searchKey) {
                     return true;
                 }
             }
@@ -132,11 +132,11 @@ public class AlgorithmTest {
         }
 
         public void insert(long value) {
-            if (this.nElems == this.size) {
+            if (nElems == size) {
                 System.out.println("Cannot insert more than " + size + " elements");
                 return;
             }
-            this.a[nElems] = value;
+            a[nElems] = value;
             nElems++;
         }
 

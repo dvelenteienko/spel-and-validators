@@ -12,8 +12,8 @@ public class Simples {
     }
 
     public Simples(String name, Integer age) {
-        this.name = name;
-        this.age = age;
+        name = name;
+        age = age;
     }
 
     public String getName() {
@@ -21,7 +21,7 @@ public class Simples {
     }
 
     public void setName(String name) {
-        this.name = name;
+        name = name;
     }
 
     public Integer getAge() {
@@ -29,7 +29,7 @@ public class Simples {
     }
 
     public void setAge(Integer age) {
-        this.age = age;
+        age = age;
     }
 
     @Override

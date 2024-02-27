@@ -9,9 +9,9 @@ public class Person {
     private int age;
 
     public Person(String name, String surname, int age) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
+        name = name;
+        surname = surname;
+        age = age;
     }
 
     public String getName() {
@@ -19,7 +19,7 @@ public class Person {
     }
 
     public void setName(String name) {
-        this.name = name;
+        name = name;
     }
 
     public String getSurname() {
@@ -27,7 +27,7 @@ public class Person {
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        surname = surname;
     }
 
     public int getAge() {
@@ -35,7 +35,7 @@ public class Person {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        age = age;
     }
 
     @Override
